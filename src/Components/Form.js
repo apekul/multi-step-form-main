@@ -14,14 +14,38 @@ const Form = () => {
     email: "",
     phone: "",
   });
+
   // Plan data
   const [planData, setPlanData] = useState({
     name: "Arcade",
     price: 9,
     type: "monthly",
   });
-  const [addOnsData, setAddOnsData] = useState({});
-  const [summaryData, setSummaryData] = useState({});
+
+  // Add-ons data
+  const [addOnsData, setAddOnsData] = useState([
+    {
+      name: "Online service",
+      description: "Access to multiplayer games",
+      price_monthly: 1,
+      price_yearly: 10,
+      check: false,
+    },
+    {
+      name: "Larger Storage",
+      description: "Extra 1TB of cloud save",
+      price_monthly: 2,
+      price_yearly: 20,
+      check: false,
+    },
+    {
+      name: "Customizable Profile",
+      description: "Custom theme of your profile",
+      price_monthly: 2,
+      price_yearly: 20,
+      check: false,
+    },
+  ]);
 
   // Current form Step
   const [currentStep, setCurrentStep] = useState(1);
@@ -53,17 +77,17 @@ const Form = () => {
     {
       title: "add-ons",
       component: (
-        <AddOns addOnsData={addOnsData} setAddOnsData={setAddOnsData} />
+        <AddOns
+          addOnsData={addOnsData}
+          setAddOnsData={setAddOnsData}
+          setCurrentStep={setCurrentStep}
+          type={planData.type}
+        />
       ),
     },
     {
       title: "summary",
-      component: (
-        <FinishingUp
-          summaryData={summaryData}
-          setSummaryData={setSummaryData}
-        />
-      ),
+      component: <FinishingUp />,
     },
   ];
 

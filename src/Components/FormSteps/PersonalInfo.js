@@ -70,7 +70,7 @@ const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
         <div className="w-full flex justify-end">
           <button
             type="submit"
-            className="bg-[#012B5D] text-md font-semibold text-gray-300 py-3 px-5 rounded-lg hover:text-white hover:bg-[#938CFE] duration-150 transition-all"
+            className="bg-[#012B5D] text-md font-semibold text-gray-300 py-3 px-5 rounded-lg hover:text-white hover:bg-[#144C85] duration-150 transition-all"
           >
             Next Step
           </button>
