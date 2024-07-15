@@ -48,9 +48,7 @@ const Form = () => {
   ]);
 
   // Current form Step
-  const [currentStep, setCurrentStep] = useState(1);
-  // Index hover
-  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const [currentStep, setCurrentStep] = useState(0);
 
   // Form data for each step
   const form = [
@@ -87,7 +85,14 @@ const Form = () => {
     },
     {
       title: "summary",
-      component: <FinishingUp />,
+      component: (
+        <FinishingUp
+          setCurrentStep={setCurrentStep}
+          personalData={personalData}
+          planData={planData}
+          addOnsData={addOnsData}
+        />
+      ),
     },
   ];
 
@@ -104,18 +109,12 @@ const Form = () => {
             key={index}
             className="flex gap-4 items-center cursor-pointer"
             onClick={() => setCurrentStep(index)}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
           >
             <div
               className={`rounded-full w-[2rem] h-[2rem] flex items-center justify-center font-bold ${
                 currentStep === index
                   ? "bg-[#BFE2FD] text-black"
                   : "border text-white"
-              } ${
-                hoveredIndex === index &&
-                hoveredIndex !== currentStep &&
-                "bg-gray-300 bg-opacity-50"
               }`}
             >
               {index + 1}
