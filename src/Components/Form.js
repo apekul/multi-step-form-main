@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import bgImage from "../assets/images/bg-sidebar-desktop.svg";
 import AddOns from "./FormSteps/AddOns";
 import PersonalInfo from "./FormSteps/PersonalInfo";
 import SelectPlan from "./FormSteps/SelectPlan";
@@ -100,19 +99,10 @@ const Form = () => {
   ];
 
   return (
-    <section className="flex bg-white p-4 rounded-xl select-none">
-      <ul
-        className="flex flex-col px-8 py-9 gap-6 bg-cover w-[17rem] h-[36rem] rounded-xl"
-        style={{
-          backgroundImage: `url(${bgImage})`,
-        }}
-      >
+    <section className="w-full sm:w-auto flex flex-col sm:flex-row sm:bg-white sm:p-4 sm:rounded-xl select-none">
+      <ul className="bg-mobile sm:bg-desktop flex items-start justify-center sm:justify-start sm:flex-col px-8 py-9 gap-6 bg-cover sm:w-[17rem] w-full h-[11rem] sm:h-[36rem] sm:rounded-xl bg-center">
         {form.map((item, index) => (
-          <li
-            key={index}
-            className="flex gap-4 items-center "
-            // onClick={() => setCurrentStep(index)}
-          >
+          <li key={index} className="flex gap-4 items-center">
             <div
               className={`rounded-full w-[2rem] h-[2rem] flex items-center justify-center font-bold ${
                 currentStep === index
@@ -122,9 +112,9 @@ const Form = () => {
             >
               {index + 1}
             </div>
-            <div className="text-white">
+            <div className="text-white hidden sm:block">
               <p className="text-xs text-gray-400">STEP {index + 1}</p>
-              <p className="font-[500] text-md uppercase">{item.title}</p>
+              <p className="font-[500] text-md uppercase ">{item.title}</p>
             </div>
           </li>
         ))}
@@ -134,7 +124,9 @@ const Form = () => {
           <SubmitFinished />
         </div>
       ) : (
-        <div className="w-[40rem]">{form[currentStep].component}</div>
+        <div className="w-full md:max-w-[40rem] relative">
+          {form[currentStep].component}
+        </div>
       )}
     </section>
   );

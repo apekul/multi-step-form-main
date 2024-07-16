@@ -17,7 +17,7 @@ const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
       newErrors.email = "Email is not valid";
     }
     if (!phone.trim()) {
-      newErrors.phone = "Phone number is required";
+      newErrors.phone = "This field is required";
     } else if (!/^(\+\d{2})?\d{9,11}$/.test(phone)) {
       newErrors.phone = "Phone number is not valid";
     }
@@ -38,25 +38,25 @@ const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
   };
 
   return (
-    <section className="h-full flex flex-col pb-5 pt-10 px-[6rem]">
-      <h1 className="text-[2rem] font-extrabold text-[#02295a]">
+    <section className="w-auto sm:h-full flex flex-col pb-5 pt-6 sm:pt-10 px-6 sm:px-[4rem] md:px-[6rem] bg-white sm:bg-none m-3 sm:m-0 rounded-xl sm:rounded-none shadow-md sm:shadow-none absolute -top-[5rem] left-0 right-0 sm:static">
+      <h1 className="text-[1.5rem] sm:text-[2rem] font-extrabold text-[#02295a]">
         Personal info
       </h1>
-      <p className="text-[1rem]" style={{ color: "hsl(231, 11%, 63%)" }}>
+      <p className="text-[1.1rem]" style={{ color: "hsl(231, 11%, 63%)" }}>
         Please provide your name, email address, and phone number.
       </p>
       <form
         onSubmit={handleSubmit}
         className="items-start justify-between flex flex-col flex-1"
       >
-        <div className="w-full pt-[2rem]">
+        <div className="w-full pt-[1rem] sm:pt-[2rem]">
           <label
             htmlFor="name"
-            className="text-[#012B5D] text-md w-full flex justify-between"
+            className="text-[#012B5D] text-sm sm:text-md w-full flex justify-between"
           >
             <span>Name</span>
             {errors.name && (
-              <span className="text-[#E3334A] text-md font-semibold">
+              <span className="text-[#E3334A] text-sm sm:text-md font-semibold">
                 {errors.name}
               </span>
             )}
@@ -68,17 +68,17 @@ const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className={`font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[1px] text-[#0D2E4F] focus:outline-[#534D95] ${
+            className={`sm:font-semibold mb-3 sm:mb-5 mt-1 sm:mt-2 py-2 sm:py-3 px-3 rounded-md w-full outline outline-[1px] text-[#0D2E4F] focus:outline-[#534D95] ${
               errors.name ? "outline-[#E3334A]" : "outline-gray-200"
             }`}
           />
           <label
             htmlFor="email"
-            className="text-[#012B5D] text-md w-full flex justify-between"
+            className="text-[#012B5D] text-sm sm:text-md w-full flex justify-between"
           >
             <span>Email Address</span>
             {errors.email && (
-              <span className="text-[#E3334A] text-md font-semibold">
+              <span className="text-[#E3334A] text-sm sm:text-md font-semibold">
                 {errors.email}
               </span>
             )}
@@ -90,17 +90,17 @@ const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="e.g. stephenking@lorem.com"
-            className={`font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[1px] text-[#0D2E4F] focus:outline-[#534D95] ${
+            className={`sm:font-semibold mb-3 sm:mb-5 mt-1 sm:mt-2 py-2 sm:py-3 px-3 rounded-md w-full outline outline-[1px] text-[#0D2E4F] focus:outline-[#534D95] ${
               errors.email ? "outline-[#E3334A]" : "outline-gray-200"
             }`}
           />
           <label
             htmlFor="phone"
-            className="text-[#012B5D] text-md w-full flex justify-between "
+            className="text-[#012B5D] text-sm sm:text-md w-full flex justify-between "
           >
             <span>Phone Number</span>
             {errors.phone && (
-              <span className="text-[#E3334A] text-md font-semibold">
+              <span className="text-[#E3334A] text-sm sm:text-md font-semibold">
                 {errors.phone}
               </span>
             )}
@@ -110,15 +110,14 @@ const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
             id="phone"
             name="phone"
             placeholder="e.g. +1 234 567 890"
-            // pattern="\+1 \d{3} \d{3} \d{3}"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className={`font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[1px] text-[#0D2E4F] focus:outline-[#534D95] ${
+            className={`sm:font-semibold mb-3 sm:mb-5 mt-1 sm:mt-2 py-2 sm:py-3 px-3 rounded-md w-full outline outline-[1px] text-[#0D2E4F] focus:outline-[#534D95] ${
               errors.phone ? "outline-[#E3334A]" : "outline-gray-200"
             }`}
           />
         </div>
-        <div className="w-full flex justify-end">
+        <div className="sm:w-full flex justify-end fixed bottom-4 left-2 right-2 sm:static bg-white -m-3 pt-4 p-3 sm:pt-0 sm:-m-0 sm:p-0">
           <button
             type="submit"
             className="bg-[#012B5D] text-md font-semibold text-gray-300 py-3 px-5 rounded-lg hover:text-white hover:bg-[#144C85] duration-150 transition-all"

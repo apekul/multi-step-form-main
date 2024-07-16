@@ -3,9 +3,9 @@ import Form from "./Components/Form";
 // https://www.frontendmentor.io/challenges/multistep-form-YVAnSdqQBJ
 function App() {
   return (
-    <div className="bg-[#EEF5FF] h-screen flex flex-col items-center justify-center">
+    <div className="bg-[#EEF5FF] h-screen flex flex-col items-center sm:justify-center sm:shadow-md shadow-none">
       <Form></Form>
-      <footer className="flex w-full justify-center absolute bottom-0">
+      <footer className=" w-full justify-center absolute bottom-0 hidden sm:flex">
         <p>Challenge by&nbsp; </p>
         <a
           href="https://www.frontendmentor.io?ref=challenge"
