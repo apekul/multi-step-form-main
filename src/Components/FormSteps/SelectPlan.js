@@ -56,16 +56,14 @@ const SelectPlan = ({ planData, setPlanData, setCurrentStep }) => {
               <img src={item.icon} alt="icon-arcade" className="w-10 h-10" />
               <span className="flex flex-col gap-0.5 mt-[3rem]">
                 <p className="text-[#122A50] font-bold">{item.name}</p>
-                <p className="text-gray-400 text-sm font-[500]">
+                <p className="text-gray-400 text-sm ">
                   $
                   {type === "monthly"
                     ? item.price_month + "/mo"
                     : item.price_year + "/yr"}
                 </p>
                 {type === "yearly" && (
-                  <p className="text-[0.8em] font-[500] text-[#02295A]">
-                    2 months free
-                  </p>
+                  <p className="text-[0.8em]  text-[#02295A]">2 months free</p>
                 )}
               </span>
             </li>

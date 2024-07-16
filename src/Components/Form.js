@@ -3,9 +3,11 @@ import bgImage from "../assets/images/bg-sidebar-desktop.svg";
 import AddOns from "./FormSteps/AddOns";
 import PersonalInfo from "./FormSteps/PersonalInfo";
 import SelectPlan from "./FormSteps/SelectPlan";
-import FinishingUp from "./FormSteps/FinishingUp";
+import Summary from "./FormSteps/Summary";
+import SubmitFinished from "./FormSteps/SubmitFinished";
 
 const Form = () => {
+  const [submited, setSubmited] = useState(false);
   // Use Redux instead? also hold the data in localStorage to prevent data after refresh
 
   // Personal Info data
@@ -86,18 +88,19 @@ const Form = () => {
     {
       title: "summary",
       component: (
-        <FinishingUp
+        <Summary
           setCurrentStep={setCurrentStep}
           personalData={personalData}
           planData={planData}
           addOnsData={addOnsData}
+          setSubmited={setSubmited}
         />
       ),
     },
   ];
 
   return (
-    <section className="flex  bg-white p-4 rounded-xl">
+    <section className="flex bg-white p-4 rounded-xl select-none">
       <ul
         className="flex flex-col px-8 py-9 gap-6 bg-cover w-[17rem] h-[36rem] rounded-xl"
         style={{
@@ -107,8 +110,8 @@ const Form = () => {
         {form.map((item, index) => (
           <li
             key={index}
-            className="flex gap-4 items-center cursor-pointer"
-            onClick={() => setCurrentStep(index)}
+            className="flex gap-4 items-center "
+            // onClick={() => setCurrentStep(index)}
           >
             <div
               className={`rounded-full w-[2rem] h-[2rem] flex items-center justify-center font-bold ${
@@ -126,7 +129,13 @@ const Form = () => {
           </li>
         ))}
       </ul>
-      <div className="w-[40rem]">{form[currentStep].component}</div>
+      {submited ? (
+        <div className="w-[40rem]">
+          <SubmitFinished />
+        </div>
+      ) : (
+        <div className="w-[40rem]">{form[currentStep].component}</div>
+      )}
     </section>
   );
 };

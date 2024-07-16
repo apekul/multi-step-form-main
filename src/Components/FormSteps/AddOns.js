@@ -44,11 +44,11 @@ const AddOns = ({ addOnsData, setAddOnsData, setCurrentStep, type }) => {
                 </span>
               </div>
               {type === "monthly" ? (
-                <p className="text-[#4130BD] font-[500] text-md">
+                <p className="text-[#4130BD] font-semibold text-md">
                   +${item.price_monthly}/mo
                 </p>
               ) : (
-                <p className="text-[#4130BD] font-[500] text-md">
+                <p className="text-[#4130BD] font-semibold text-md">
                   +${item.price_yearly}/yr
                 </p>
               )}

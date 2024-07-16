@@ -1,14 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 
 const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setPersonalData({ ...personalData, [name]: value });
+  const [name, setName] = useState(personalData.name);
+  const [email, setEmail] = useState(personalData.email);
+  const [phone, setPhone] = useState(personalData.phone);
+  const [errors, setErrors] = useState({});
+
+  const validation = () => {
+    const newErrors = {};
+    if (!name.trim()) {
+      newErrors.name = "This field is required";
+    }
+    if (!email.trim()) {
+      newErrors.email = "This field is required";
+    } else if (!/\S+@\S+\.\S+/.test(email)) {
+      newErrors.email = "Email is not valid";
+    }
+    if (!phone.trim()) {
+      newErrors.phone = "Phone number is required";
+    } else if (!/^(\+\d{2})?\d{9,11}$/.test(phone)) {
+      newErrors.phone = "Phone number is not valid";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setCurrentStep((prev) => prev + 1);
+    const isValid = validation();
+    if (isValid) {
+      setPersonalData({ name, email, phone });
+      setCurrentStep((prev) => prev + 1);
+    } else {
+      console.log("form is not valid");
+    }
   };
 
   return (
@@ -24,34 +50,60 @@ const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
         className="items-start justify-between flex flex-col flex-1"
       >
         <div className="w-full pt-[2rem]">
-          <label htmlFor="name" className="text-[#012B5D] text-md font-[500]">
-            Name
+          <label
+            htmlFor="name"
+            className="text-[#012B5D] text-md w-full flex justify-between"
+          >
+            <span>Name</span>
+            {errors.name && (
+              <span className="text-[#E3334A] text-md font-semibold">
+                {errors.name}
+              </span>
+            )}
           </label>
           <input
             placeholder="e.g. Stephen King"
             type="text"
             id="name"
             name="name"
-            value={personalData.name}
-            onChange={handleChange}
-            required
-            className="font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[2px] outline-gray-200"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            className={`font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[1px] outline-gray-200 text-[#0D2E4F] focus:outline-[#534D95] ${
+              errors.name && "outline-[#E3334A]"
+            }`}
           />
-          <label htmlFor="email" className="text-[#012B5D] text-md font-[500]">
-            Email Address
+          <label
+            htmlFor="email"
+            className="text-[#012B5D] text-md w-full flex justify-between"
+          >
+            <span>Email Address</span>
+            {errors.email && (
+              <span className="text-[#E3334A] text-md font-semibold">
+                {errors.email}
+              </span>
+            )}
           </label>
           <input
-            type="email"
+            type="text"
             id="email"
             name="email"
-            value={personalData.email}
-            onChange={handleChange}
-            required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             placeholder="e.g. stephenking@lorem.com"
-            className="font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[2px] outline-gray-200"
+            className={`font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[1px] outline-gray-200 text-[#0D2E4F] focus:outline-[#534D95] ${
+              errors.email && "outline-[#E3334A]"
+            }`}
           />
-          <label htmlFor="phone" className="text-[#012B5D] text-md font-[500]">
-            Phone Number
+          <label
+            htmlFor="phone"
+            className="text-[#012B5D] text-md w-full flex justify-between "
+          >
+            <span>Phone Number</span>
+            {errors.phone && (
+              <span className="text-[#E3334A] text-md font-semibold">
+                {errors.phone}
+              </span>
+            )}
           </label>
           <input
             type="tel"
@@ -59,12 +111,11 @@ const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
             name="phone"
             placeholder="e.g. +1 234 567 890"
             // pattern="\+1 \d{3} \d{3} \d{3}"
-            minLength="9"
-            maxLength="12"
-            value={personalData.phone}
-            onChange={handleChange}
-            required
-            className="font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[2px] outline-gray-200"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            className={`font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[1px] outline-gray-200 text-[#0D2E4F] focus:outline-[#534D95] ${
+              errors.phone && "outline-[#E3334A]"
+            }`}
           />
         </div>
         <div className="w-full flex justify-end">
