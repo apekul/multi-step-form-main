@@ -68,8 +68,8 @@ const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className={`font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[1px] outline-gray-200 text-[#0D2E4F] focus:outline-[#534D95] ${
-              errors.name && "outline-[#E3334A]"
+            className={`font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[1px] text-[#0D2E4F] focus:outline-[#534D95] ${
+              errors.name ? "outline-[#E3334A]" : "outline-gray-200"
             }`}
           />
           <label
@@ -90,8 +90,8 @@ const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="e.g. stephenking@lorem.com"
-            className={`font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[1px] outline-gray-200 text-[#0D2E4F] focus:outline-[#534D95] ${
-              errors.email && "outline-[#E3334A]"
+            className={`font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[1px] text-[#0D2E4F] focus:outline-[#534D95] ${
+              errors.email ? "outline-[#E3334A]" : "outline-gray-200"
             }`}
           />
           <label
@@ -113,8 +113,8 @@ const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
             // pattern="\+1 \d{3} \d{3} \d{3}"
             value={phone}
             onChange={(e) => setPhone(e.target.value)}
-            className={`font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[1px] outline-gray-200 text-[#0D2E4F] focus:outline-[#534D95] ${
-              errors.phone && "outline-[#E3334A]"
+            className={`font-semibold mb-5 mt-2 p-3 rounded-md w-full outline outline-[1px] text-[#0D2E4F] focus:outline-[#534D95] ${
+              errors.phone ? "outline-[#E3334A]" : "outline-gray-200"
             }`}
           />
         </div>
