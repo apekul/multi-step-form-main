@@ -49,7 +49,7 @@ const Form = () => {
   ]);
 
   // Current form Step
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState(0);
 
   // Form data for each step
   const form = [
