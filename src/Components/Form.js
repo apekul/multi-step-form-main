@@ -33,14 +33,14 @@ const Form = () => {
       check: false,
     },
     {
-      name: "Larger Storage",
+      name: "Larger storage",
       description: "Extra 1TB of cloud save",
       price_monthly: 2,
       price_yearly: 20,
       check: false,
     },
     {
-      name: "Customizable Profile",
+      name: "Customizable profile",
       description: "Custom theme of your profile",
       price_monthly: 2,
       price_yearly: 20,
@@ -49,7 +49,7 @@ const Form = () => {
   ]);
 
   // Current form Step
-  const [currentStep, setCurrentStep] = useState(0);
+  const [currentStep, setCurrentStep] = useState(1);
 
   // Form data for each step
   const form = [
@@ -100,7 +100,7 @@ const Form = () => {
 
   return (
     <section className="w-full sm:w-auto flex flex-col sm:flex-row sm:bg-white sm:p-4 sm:rounded-xl select-none">
-      <ul className="bg-mobile sm:bg-desktop flex items-start justify-center sm:justify-start sm:flex-col px-8 py-9 gap-6 bg-cover sm:w-[17rem] w-full h-[11rem] sm:h-[36rem] sm:rounded-xl bg-center">
+      <ul className="bg-mobile sm:bg-desktop flex items-start justify-center sm:justify-start sm:flex-col px-8 py-8 gap-6 bg-cover sm:w-[17rem] w-full h-[11rem] sm:h-[36rem] sm:rounded-xl bg-center">
         {form.map((item, index) => (
           <li key={index} className="flex gap-4 items-center">
             <div
@@ -124,7 +124,11 @@ const Form = () => {
           <SubmitFinished />
         </div>
       ) : (
-        <div className="w-full md:max-w-[40rem] relative">
+        <div
+          className={`w-full md:w-[40rem] sm:h-full relative bg-[#EEF5FF] ${
+            planData.type === "yearly" && currentStep === 1 && "h-[35rem]"
+          }`}
+        >
           {form[currentStep].component}
         </div>
       )}

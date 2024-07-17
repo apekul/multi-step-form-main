@@ -38,7 +38,7 @@ const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
   };
 
   return (
-    <section className="w-auto sm:h-full flex flex-col pb-5 pt-6 sm:pt-10 px-6 sm:px-[4rem] md:px-[6rem] bg-white sm:bg-none m-3 sm:m-0 rounded-xl sm:rounded-none shadow-md sm:shadow-none absolute -top-[5rem] left-0 right-0 sm:static">
+    <section className="w-auto sm:h-full flex flex-col pb-5 pt-6 sm:pt-10 px-6 sm:px-[4rem] md:px-[6rem] bg-white sm:bg-none m-3 sm:m-0 rounded-xl sm:rounded-none shadow-md sm:shadow-none absolute -top-[5.5rem] left-0 right-0 sm:static">
       <h1 className="text-[1.5rem] sm:text-[2rem] font-extrabold text-[#02295a]">
         Personal info
       </h1>
@@ -117,7 +117,8 @@ const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
             }`}
           />
         </div>
-        <div className="sm:w-full flex justify-end fixed bottom-4 left-2 right-2 sm:static bg-white -m-3 pt-4 p-3 sm:pt-0 sm:-m-0 sm:p-0">
+        {/* buttons */}
+        <div className="sm:w-full flex justify-end fixed bottom-4 left-4 right-4 sm:static bg-white -m-3 pt-4 p-3 sm:pt-0 sm:-m-0 sm:p-0">
           <button
             type="submit"
             className="bg-[#012B5D] text-md font-semibold text-gray-300 py-3 px-5 rounded-lg hover:text-white hover:bg-[#144C85] duration-150 transition-all"

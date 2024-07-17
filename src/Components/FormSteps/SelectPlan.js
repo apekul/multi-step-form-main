@@ -33,19 +33,19 @@ const SelectPlan = ({ planData, setPlanData, setCurrentStep }) => {
   }, [type, planData.name, setPlanData]);
 
   return (
-    <section className="h-full flex flex-col pb-5 pt-10 px-[6rem]">
-      <h1 className="text-[2rem] font-extrabold text-[#02295a]">
+    <section className="w-auto sm:h-full flex flex-col pb-5 pt-6 sm:pt-10 px-6 sm:px-[4rem] md:px-[6rem] bg-white sm:bg-none m-3 sm:m-0 rounded-xl sm:rounded-none shadow-md sm:shadow-none absolute -top-[5.5rem] left-0 right-0 sm:static">
+      <h1 className="text-[1.5rem] sm:text-[2rem] font-extrabold text-[#02295a]">
         Select your plan
       </h1>
-      <p className="text-[1rem]" style={{ color: "hsl(231, 11%, 63%)" }}>
+      <p className="text-[1.1rem]" style={{ color: "hsl(231, 11%, 63%)" }}>
         You have the option of monthly or yearly billing.
       </p>
       <div className="items-start justify-between flex flex-col flex-1">
-        <ul className="w-full mt-[2rem] grid grid-flow-row grid-cols-3 gap-5">
+        <ul className="w-full mt-[1rem] sm:mt-[2rem] flex flex-col sm:grid sm:grid-flow-row sm:grid-cols-3 gap-3 sm:gap-5">
           {plans.map((item, index) => (
             <li
               key={index}
-              className={`h-auto px-3 pb-3 pt-[1.10rem] border-2 rounded-lg flex flex-col justify-between cursor-pointer  hover:border-[#AFAAD6]
+              className={`h-auto px-3 pb-3 pt-3 sm:pt-[1.10rem] gap-4 sm:gap-0 border-2 rounded-lg flex  sm:items-start sm:flex-col sm:justify-between cursor-pointer  hover:border-[#AFAAD6]
               ${
                 item.name === planData.name
                   ? "bg-[#F8F9FE] border-[#AFAAD6]"
@@ -54,7 +54,7 @@ const SelectPlan = ({ planData, setPlanData, setCurrentStep }) => {
               onClick={() => updatePlan(item)}
             >
               <img src={item.icon} alt="icon-arcade" className="w-10 h-10" />
-              <span className="flex flex-col gap-0.5 mt-[3rem]">
+              <span className="flex flex-col gap-0.5 sm:mt-[3rem]">
                 <p className="text-[#122A50] font-bold">{item.name}</p>
                 <p className="text-gray-400 text-sm ">
                   $
@@ -105,7 +105,7 @@ const SelectPlan = ({ planData, setPlanData, setCurrentStep }) => {
         </ul>
 
         {/* buttons */}
-        <div className="w-full flex justify-between">
+        <div className="sm:w-full flex justify-between fixed bottom-4 left-4 right-4 sm:static bg-white -m-3 pt-4 p-3 sm:pt-0 sm:-m-0 sm:p-0">
           <button
             onClick={() => setCurrentStep((prev) => prev - 1)}
             className="font-semibold text-md text-gray-400 hover:text-[#012B5D] duration-150 transition-all"
