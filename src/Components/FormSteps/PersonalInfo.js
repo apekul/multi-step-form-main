@@ -38,7 +38,7 @@ const PersonalInfo = ({ personalData, setPersonalData, setCurrentStep }) => {
   };
 
   return (
-    <section className="w-auto sm:h-full flex flex-col pb-5 pt-6 sm:pt-10 px-6 sm:px-[4rem] md:px-[6rem] bg-white sm:bg-none m-3 sm:m-0 rounded-xl sm:rounded-none shadow-md sm:shadow-none absolute -top-[5.5rem] left-0 right-0 sm:static">
+    <section className="bg-white w-auto sm:h-full flex flex-col pb-5 pt-6 sm:pt-10 px-6 sm:px-[2rem] lg:px-[6rem] sm:bg-none m-3 sm:m-0 rounded-xl sm:rounded-none shadow-md sm:shadow-none absolute -top-[5.5rem] left-0 right-0 sm:static">
       <h1 className="text-[1.5rem] sm:text-[2rem] font-extrabold text-[#02295a]">
         Personal info
       </h1>

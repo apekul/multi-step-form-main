@@ -120,12 +120,12 @@ const Form = () => {
         ))}
       </ul>
       {submited ? (
-        <div className="w-[40rem]">
+        <div className="w-full lg:w-[40rem] sm:w-[24rem] bg-[#EEF5FF] sm:bg-white">
           <SubmitFinished />
         </div>
       ) : (
         <div
-          className={`w-full md:w-[40rem] sm:h-full relative bg-[#EEF5FF] ${
+          className={`w-full lg:w-[40rem] sm:w-[24rem] relative bg-[#EEF5FF] sm:bg-white ${
             planData.type === "yearly" && currentStep === 1 && "h-[35rem]"
           }`}
         >
